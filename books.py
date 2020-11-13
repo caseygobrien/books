@@ -2,15 +2,17 @@ from random import choice
 from datetime import datetime
 from titlecase import titlecase
 
-year = datetime.now().year
-today = datetime.now().strftime('%m/%d')
+running = True
+books = []
 booklist = "books.txt"
+year = datetime.now().year
 books_read = str(year) + " books.txt"
+today = datetime.now().strftime('%m/%d')
+
 
 open(booklist, 'a').close()
 open(books_read, 'a').close()
 
-books = []
 
 with open(booklist, 'r') as bookimport:
 	for book in bookimport:

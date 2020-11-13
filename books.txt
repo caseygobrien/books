@@ -1,15 +1,17 @@
+1491 by Charles C. Mann
 After the Apocalypse by Maureen F McHugh
+Assata by Assata Shakur
 Borderline by Mishell Baker
 Caliban's War by James S. A. Corey
 Creativity, Inc by Ed Catmull
 Doors of Stone by Patrick Rothfuss
 Get Well Soon by Jenifer Wright
+How to Change Your Mind by Michael Pollan
 How to Live Safely in a Science Fictional Universe by Charles Yu
 Imperial Bedrooms by Brett Easton Ellis
 Infintie Jest by David Foster Wallace
-Kill Someone by Luke Smitherd
 Lock in by John Scalzi
-Lunar Park by Brett Easton Ellis
+My Vanishing Country by Bakari Sellers
 Old Man's War by John Scalzi
 Permanent Record by Edward Snowden
 Recursion by Blake Crouch
@@ -27,4 +29,6 @@ The Tattooist of Auswitz by Heather Morris
 The Time Traveler's Wife by Audrey Niffenegger
 The Water Knife by Paolo Bacigalupi
 This Is How You Lose the Time War by Amal El Mohtar
+Why Nations Fail by Daron Acemoglu and James A. Robinson
+Why We're Polarized by Ezra Klein
 World of Trouble by Ben H. Winters
