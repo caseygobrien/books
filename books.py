@@ -9,10 +9,7 @@ year = datetime.now().year
 books_read = str(year) + " books.txt"
 today = datetime.now().strftime('%m/%d')
 
-
 open(booklist, 'a').close()
-open(books_read, 'a').close()
-
 
 with open(booklist, 'r') as bookimport:
 	for book in bookimport:
@@ -20,9 +17,10 @@ with open(booklist, 'r') as bookimport:
 
 
 def save_book_list():
+	books = sort_books()
 	with open(booklist, 'w') as booksave:
-		for book in sorted(books):
-			print(titlecase(book), file=booksave)
+		for title in books:
+			print(titlecase(title), file=booksave)
 
 def add_new_book(book_title):
 	if book_title in books:
@@ -82,7 +80,40 @@ def delete_book(book_to_delete):
 		return "{} removed from list".format(titlecase(book_with_author))
 	else:
 		return "{} is not in your list".format(titlecase(book_to_delete))
-		
+
+
+def sort_books():
+	books_with_the = [title for title in books if title.startswith("the ")]
+	books_with_a = [title for title in books if title.startswith("a ")]
+	books_with_an = [title for title in book if title.startswith("an ")]
+	books_the_cleaned = []
+	books_a_cleaned = []
+	books_an_cleaned = []
+	for title in books_with_the:
+		books_the_cleaned.append(title.replace("the ", ""))
+		books.remove(title)
+	for title in books_with_a:
+		books_a_cleaned.append(title.replace("a ", ""))
+		books.remove(title)
+	for title in books_with_an:
+		books_an_cleaned.append(title.replace("an ", ""))
+		books.remove(title)
+	for title in books_the_cleaned:
+		books.append(title)
+	for title in books_a_cleaned:
+		books.append(title)
+	for title in books_an_cleaned:
+		books.append(title)
+	books.sort()
+	for title in books:
+		if title in books_the_cleaned:
+			books[books.index(title)] = books_with_the[books_the_cleaned.index(title)]
+		elif title in books_a_cleaned:
+			books[books.index(title)] = books_with_a[books_a_cleaned.index(title)]
+		elif title in books_an_cleaned:
+			books[books.index(title)] = books_with_an[books_an_cleaned.index(title)]
+	return books
+
 
 running = True
 while running:
@@ -95,7 +126,6 @@ while running:
 [S]ee read list
 [E]xit
 """).lower()
-
 
 	if new_book == "a":
 		book = get_book_info()
