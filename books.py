@@ -38,7 +38,6 @@ def add_read_book(book_title):
 			book_with_author = book
 			books.remove(book)
 			save_book_list()
-			break
 	dated_title = today + ' ' + titlecase(book_with_author)
 	with open(books_read, 'a') as bookwrite:
 		bookwrite.write("\n" + dated_title)
@@ -47,7 +46,7 @@ def add_read_book(book_title):
 def get_book_info():
 	book = input("Book Title: ").lower()
 	if book == '':
-		return
+		return book
 	else:
 		author = input("Author: ").lower()
 		if author == '':
@@ -59,8 +58,6 @@ def get_book_info():
 
 def get_book_title():
 	book = input("Book Title: ")
-	if book == '':
-		return
 	return book
 
 
@@ -129,22 +126,22 @@ while running:
 
 	if new_book == "a":
 		book = get_book_info()
-		book_addition = add_new_book(book)
-		print(book_addition)
-
+		if book != '':
+			book_addition = add_new_book(book)
+			print(book_addition)
 	if new_book == "l":
 		book = get_book_title()
-		book_addition = add_read_book(book)
-		print("{} logged as read".format(titlecase(book_addition)))
-
+		if book != '':
+			book_addition = add_read_book(book)
+			print("{} logged as read".format(titlecase(book_addition)))
 	if new_book == "r":
 		book_to_read = get_random_book()
 		print("You should read {}".format(titlecase(book_to_read)))
-		
 	if new_book == "d":
 		deleted_book = get_book_title()
-		book = delete_book(deleted_book)
-		print(book)
+		if deleted_book != "":
+			book = delete_book(deleted_book)
+			print(book)
 	if new_book == "v":
 		print("-" * 40)
 		for book in books:
